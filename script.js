@@ -1,5 +1,9 @@
-var x = document.getElementById('show');
-var ville = document.getElementById("inputVille")
+//var x = document.getElementById('show');
+//var ville = document.getElementById("inputVille")
+var img = document.getElementById('weather_image');
+var ville = document.getElementById('ville');
+var description = document.getElementById('description');
+var inputVilleValue = document.getElementById('inputVille');
 
 var api = 'http://api.openweathermap.org/data/2.5/weather?'
 var lat = 0;
@@ -8,10 +12,12 @@ var keyapi = 'APPID=b5fe018318b91102e114c2e5db8138d8'
 var units = 'units=metric'
 var lang = 'lang=fr'
 var url = null;
-function getVille(){
-    console.log(ville.value);
-    var url = api + "q=" + ville.value + '&' + units + '&' + lang + '&' + keyapi;
-    console.log(url);
+
+function getVille() {
+    var url = api + "q=" + inputVilleValue.value + '&' + units + '&' + lang + '&' + keyapi;
+    $.getJSON(url, function (data) {
+        writeData(data);
+    });
 }
 
 function getLocation() {
@@ -23,16 +29,44 @@ function getLocation() {
 }
 
 function showPosition(position) {
-    console.log("Latitude : " + position.coords.latitude);
-    console.log("Longitude : " + position.coords.longitude);
     var lat = 'lat=' + position.coords.latitude;
     var lon = 'lon=' + position.coords.longitude;
     var url = api + lat + '&' + lon + '&' + units + '&' + lang + '&' + keyapi;
-    console.log(url); 
-    x.innerHTML = "<br>Latitude : " + position.coords.latitude + "<br> Longitude : " + position.coords.longitude;
-    $.getJSON(url, function(data){
-        console.log(data.name);
-        x.innerHTML += "<br> Vous etes à : " + data.name + "<br>Le temps est : " + data.weather[0].description + "<br> La température est de : " + data.main.temp + " °C";
-
+    $.getJSON(url, function (data) {
+        writeData(data);
     })
+}
+
+
+function imageCard(id) {
+    if (id >= 200 && id < 300) {
+        //thunderstorm
+        img.src = "temps_image/thunderstrom.png"
+    } else if (id >= 300 && id < 400) {
+        //drizzle
+        img.src = "temps_image/drizzle.png"
+    } else if (id >= 500 && id < 600) {
+        //rain
+        img.src = "temps_image/drizzle.png"
+    } else if (id >= 600 && id < 700) {
+        //snow
+        img.src = "temps_image/snow-cloud.png"
+    } else if (id >= 700 && id < 800) {
+        //atmosphere
+        img.src = "temps_image/cloud.png"
+    } else if (id == 800) {
+        //clear
+        img.src = "temps_image/sunny.png"
+    } else if (id > 800) {
+        //clouds
+        img.src = "temps_image/cloud_sunny.png"
+    } else {
+        console.log('picture not match');
+    }
+}
+
+function writeData(data) {
+    ville.innerHTML = data.name + " -- " + data.sys.country
+    description.innerHTML = (data.weather[0].description).toUpperCase() + "<br>" + data.main.temp + " °C"
+    imageCard(data.weather[0].id);
 }
