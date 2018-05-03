@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>METEO</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="mb-4 form-signin">
+    <div class="text-center button_div">
+      <button class="btn btn-primary" onclick="getLocation()">Location</button>
+      <p id="show"></p>
+    </div>
+
+    <!-- <div class="form-label-group">
+      <input onchange="getVille()" type="text" id="inputVille" class="form-control" placeholder="Ville" value="" required autofocus>
+      <label for="inputVille">Ville</label>
+    </div> -->
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
