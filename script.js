@@ -75,10 +75,10 @@ function writeData(data) {
     ville.innerHTML = data.name + " -- " + data.sys.country
     description.innerHTML = (data.weather[0].description).toUpperCase() + "<br>" + data.main.temp + " °C"
     imageCard(data.weather[0].id);
-    min.innerHTML = "Min : "+ data.main.temp_min + " °C";
-    max.innerHTML = "Max : "+data.main.temp_max + " °C";
-    humidity.innerHTML = "Hum : " + data.main.humidity + "%"
-    pressure.innerHTML = "Pres : " + data.main.pressure + " hPa"
+    min.innerHTML = "Minimum : " + data.main.temp_min + " °C";
+    max.innerHTML = "Maximum : " + data.main.temp_max + " °C";
+    humidity.innerHTML = "Humidité : " + data.main.humidity + "%"
+    pressure.innerHTML = "Pression : " + data.main.pressure + " hPa"
     wind.innerHTML = "Vent : " + data.wind.speed + "m.s-1 | " + data.wind.deg + " " + degToCard(data.wind.deg)
 }
 

@@ -14,63 +14,32 @@
 
 <body onload="getLocation()">
 
+  <nav class="navbar navbar-light bg-dark justify-content-between">
+    <a class="navbar-brand" style="color: white">Météo</a>
+    <input onchange="getVille()" class="text-center" id="inputVille" placeholder="Chercher une ville" type="text" value="" autofocus>
+    <button onclick="getLocation()">
+      <span class="fas fa-map-pin"></span>
+    </button>
+  </nav>
+
   <div class="card-margin mx-auto card text-center" style="width: 18rem;">
     <img id="weather_image" class="card-img-top weather_image mx-auto img" src="temps_image/cloud.png" alt="Card image cap">
     <div class="card-body">
       <h5 id="ville" class="card-title">Card title</h5>
       <p id="description" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <!-- <ul class="list-group list-group-flush">
-          <li id="Min" class="list-group-item">Min</li>
-<li id="Max" class="list-group-item">Max</li>
-<li id="Wind" class="list-group-item">Vent</li>
-<li id="humidity" class="list-group-item">humidité</li>
-        </ul> <br> -->
-      <!-- <div class="container"> -->
-
       <ul id="details" class="list-group list-group-flush">
-<li class="list-group-item" id="min"></li>
-<li class="list-group-item" id="max"></li>
-<li class="list-group-item" id="humidity"></li>
-<li class="list-group-item" id="pressure"></li>
-<li class="list-group-item" id="wind"></li>
+        <li class="list-group-item" id="min"></li>
+        <li class="list-group-item" id="max"></li>
+        <li class="list-group-item" id="humidity"></li>
+        <li class="list-group-item" id="pressure"></li>
+        <li class="list-group-item" id="wind"></li>
       </ul>
-
-
-      <!-- <div class="row">
-        <div class="col" id="min"> Min</div>
-        <div class="col" id="max"> Max</div>
-      </div>
-      <div class="row">
-        <div class="col" id="wind"> Wind</div>
-      </div>
-      <div class="row">
-        <div class="col" id="humidity"> Humidity</div>
-        <div class="col" id="pressure"> Pressure</div>
-      </div>
-    </div> -->
-    <!-- </div> <br> -->
-    <br>
-    <input onchange="getVille()" class="text-center" id="inputVille" placeholder="Autre Ville" type="text" value="" autofocus>
-    <button onclick="getLocation()">
-      <span class="fas fa-map-pin"></span>
-    </button>
-  </div>
+    </div>
   </div>
 
 
-  <!-- <div class="mb-4 form-signin">
-    <div class="text-center button_div">
-      <img class="weather_image" id="weather_image" src="temps_image/cloud.png" alt="weather_image">
-      <br>
-      <button class="btn btn-primary" onclick="getLocation()">Location</button>
-      <p id="show"></p>
-    </div> -->
 
-  <!-- <div class="form-label-group">
-      <input onchange="getVille()" type="text" id="inputVille" class="form-control" placeholder="Ville" value="" required autofocus>
-      <label for="inputVille">Ville</label>
-    </div> -->
-  </div>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="script.js"></script>
 </body>
