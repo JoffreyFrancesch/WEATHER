@@ -7,10 +7,22 @@
     width: 100px;
 }
 
-.card-margin{
-    margin-top: 50px; 
+.card-margin {
+    margin-top: 50px;
 }
 
-.img{
+.img {
     margin-top: 10px;
+}
+
+#details {
+    font-size: 14px;
+}
+
+#min {
+    color: #4392F1;
+}
+
+#max {
+    color: #F4D35E;
 }
